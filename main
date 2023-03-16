@@ -1,0 +1,145 @@
+# TP4 - Jules Buonassera
+"""
+# Exercice 1
+
+class StringFoo:
+    def __init__(self):
+        self.message = ""
+
+    def set_string(self, string):
+        self.message = string
+
+    def print_string(self):
+        print(self.message.upper())
+
+test = StringFoo()
+test.set_string("test")
+test.print_string()
+
+
+
+# Exercice 2
+
+class Rectangle:
+    def __init__(self,largeur,longueur):
+        self.longueur = longueur
+        self.largeur = largeur
+
+    def calcul_aire(self,largeur,longueur):
+        self.aire = largeur * longueur
+
+    def afficher_infos(self):
+        print("Largeur = ",self.largeur)
+        print("Longueur = ",self.longueur)
+        print("Aire = ",self.aire)
+
+rec = Rectangle(2,3)
+rec.calcul_aire(rec.largeur,rec.longueur)
+rec.afficher_infos()
+
+
+# Exercice 3
+
+from math import pi
+
+class Cercle:
+    def __init__(self,rayon):
+        self.rayon = rayon
+
+    def calcul_aire(self):
+        return self.rayon ** 2 * pi
+
+    def calcul_circonference(self):
+        return self.rayon * 2 * pi
+
+mon_cercle = Cercle(5)
+print(mon_cercle.calcul_aire())
+print(mon_cercle.calcul_circonference())
+
+
+# Exercice 4
+import random
+
+class Hero:
+    def __init__(self,nom):
+        self.vie = random.randint(2, 20)
+        self.attaque = random.randint(1, 6)
+        self.defense = random.randint(1, 6)
+        self.nom = nom
+
+    def attaquer(self):
+        self.attaque = self.attaque + random.randint(1, 6)
+        return self.attaque
+
+    def dommages(self,nbr_dommage):
+        self.vie -= nbr_dommage - self.defense
+        return self.vie
+
+    def est_vivant(self):
+        if self.vie > 0:
+            return True
+        else:
+            return False
+
+
+test = Hero("ironman")
+print(test.attaquer())
+print(test.dommages(1))
+print(test.est_vivant())
+
+# Exercice 5
+from dataclasses import dataclass
+import random
+
+@dataclass
+class Personnage:
+    force: int = random.randint(1, 20)
+    dexterite: int = random.randint(1, 20)
+    constitution: int = random.randint(1, 20)
+    intelligence: int = random.randint(1, 20)
+    sagesse: int = random.randint(1, 20)
+    charisme: int = random.randint(1, 20)
+
+person1 = Personnage()
+print(person1)
+
+# Exercice 6
+
+from dataclasses import dataclass
+import random
+
+@dataclass
+class Personnage:
+    force: int = random.randint(1, 20)
+    dexterite: int = random.randint(1, 20)
+    constitution: int = random.randint(1, 20)
+    intelligence: int = random.randint(1, 20)
+    sagesse: int = random.randint(1, 20)
+    charisme: int = random.randint(1, 20)
+
+class Hero:
+    def __init__(self, nom):
+        self.vie = random.randint(2, 20)
+        self.attaque = random.randint(1, 6)
+        self.defense = random.randint(1, 6)
+        self.nom = nom
+        self.personnage = Personnage()
+
+    def attaquer(self):
+        self.attaque = self.attaque + random.randint(1, 6)
+        return self.attaque
+
+    def dommages(self, nbr_dommage):
+        self.vie -= nbr_dommage - self.defense
+        return self.vie
+
+    def est_vivant(self):
+        if self.vie > 0:
+            return True
+        else:
+            return False
+
+hero = Hero("Batman")
+print(hero.personnage)
+
+"""
